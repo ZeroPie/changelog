@@ -24,9 +24,10 @@ const commitsArray = output.split('\n').map(escapeWeirdChars).reduce((acc, ele) 
 
 const changeLogMD = `# ChangeLog
   ## Adds
-    ${changelogTemplate.adds.join('\n')}
+    ${changelogTemplate.adds.join('\n *')}
   ## Changes
-    ${changelogTemplate.changes.join('\n')}
+
+    ${changelogTemplate.changes.join('\n *')}
 `
 
 fs.writeFileSync('./CHANGELOG.md', `${changeLogMD}`)
