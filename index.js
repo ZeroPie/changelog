@@ -9,11 +9,11 @@ const changelogTemplate = {
 }
 
 const escapeWeirdChars = s => s.replace(/\|/gi, '')
-const escapeActions = s => s.replace(/(Add|Change)/ig, '')
+const escapeActions = s => s.replace(/(Add|Change)/i, '')
 
 const commitsArray = output.split('\n').map(escapeWeirdChars).reduce((acc, ele) => {
-  if (ele.includes('Add')) acc.adds.push(escapeActions(ele))
-  if (ele.includes('Change')) acc.changes.push(escapeActions(ele))
+  ele.includes('Add') ? acc.adds.push(escapeActions(ele)) : ele
+  ele.includes('Change') ? acc.changes.push(escapeActions(ele)) : ele
 
   return acc
 }, changelogTemplate)
@@ -24,9 +24,9 @@ const commitsArray = output.split('\n').map(escapeWeirdChars).reduce((acc, ele) 
 
 const changeLogMD = `# ChangeLog
   ## Adds
-    ${changelogTemplate.adds}
+    ${changelogTemplate.adds.join('\n')}
   ## Changes
-    ${changelogTemplate.changes}
+    ${changelogTemplate.changes.join('\n')}
 `
 
 fs.writeFileSync('./CHANGELOG.md', `${changeLogMD}`)
