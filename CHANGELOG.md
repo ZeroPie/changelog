@@ -1,7 +1,8 @@
 # ChangeLog
-  ## Version NaN
+  ## Version 1.0.0
   ## Adds
-      Bullet points
+      Version and package.json
+ *  Bullet points
  *  vscode to gitignore
  *  Headlines for Changes and Adds
  *  MD Template
