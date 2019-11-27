@@ -1,7 +1,9 @@
-const child = require('child_process')
+const require = require('child_process')
 const fs = require('fs')
 
 const output = child.execSync(`git log --format=%B%`).toString('utf-8')
+//import { version } from './package.json';
+import path from 'path';
 
 const changelogTemplate = {
   adds: [],
@@ -19,10 +21,8 @@ const commitsArray = output.split('\n').map(escapeWeirdChars).reduce((acc, ele) 
 }, changelogTemplate)
 
 
-
-
-
 const changeLogMD = `# ChangeLog
+  ## Version ${currentVersion}
   ## Adds
     ${changelogTemplate.adds.join('\n *')}
   ## Changes
@@ -31,4 +31,3 @@ const changeLogMD = `# ChangeLog
 `
 
 fs.writeFileSync('./CHANGELOG.md', `${changeLogMD}`)
-console.log({ changeLogMD })

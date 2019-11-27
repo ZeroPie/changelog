@@ -1,0 +1,15 @@
+{
+  "name": "changelog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZeroPie/changelog.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZeroPie/changelog/issues"
+  },
+  "homepage": "https://github.com/ZeroPie/changelog#readme"
+}

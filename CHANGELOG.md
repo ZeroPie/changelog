@@ -1,6 +1,8 @@
 # ChangeLog
+  ## Version NaN
   ## Adds
-      vscode to gitignore
+      Bullet points
+ *  vscode to gitignore
  *  Headlines for Changes and Adds
  *  MD Template
  *  Another Commit
