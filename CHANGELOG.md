@@ -1,13 +1,6 @@
 # ChangeLog
-  ## Version 1.0.0
-  ## Adds
-      Version and package.json
- *  Bullet points
- *  vscode to gitignore
- *  Headlines for Changes and Adds
- *  MD Template
- *  Another Commit
+    ## Version 1.0.0
+    ## Adds
+      
   ## Changes
-
-      Headlines for Changes and Adds
- *  Use Reduce
+    
