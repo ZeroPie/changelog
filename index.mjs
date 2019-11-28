@@ -1,9 +1,10 @@
 
 import fs from 'fs'
 import child from 'child_process'
-import { escapeWeirdChars, capFirstLetter, changeLogReducer } from './functions.mjs'
+import { escapeWeirdChars, capFirstLetter, changeLogReducer } from './src/functions'
 //import {version} from './package.json'; // :`( 
 const { version } = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+
 
 const changelogTemplate = {
   all: [],
@@ -18,7 +19,6 @@ gitLogOutput
   .map(escapeWeirdChars)
   .map(capFirstLetter)
   .reduce(changeLogReducer, changelogTemplate)
-
 
 const changeLogMD = `
   # ChangeLog
@@ -35,4 +35,3 @@ console.log('gitLogOutput', gitLogOutput.split('\n'))
 
 
 console.log({ changelogTemplate })
-
