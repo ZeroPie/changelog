@@ -1,6 +1,6 @@
 export const escapeWeirdChars = s => s.replace(/\|/gi, '')
-const trimExtraSpaces = s => s.replace(/\s\s+/g, ' ')
-const trimLeadingWhitespace = s => s.replace(/^\s+/, '')
+export const trimExtraSpaces = s => s.replace(/\s\s+/g, ' ')
+export const trimLeadingWhitespace = s => s.replace(/^\s+/, '')
 export const escapeActions = s => s.replace(/(Add|Change)/i, '')
 
 export const capFirstLetter = s => s.replace(/^\w/, r => r.toUpperCase());

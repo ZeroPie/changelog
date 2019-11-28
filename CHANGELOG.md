@@ -2,7 +2,9 @@
   # ChangeLog
   ## Version 1.0.0 
   ## Adds
-  Debug Stuff
+  Tape
+* Tape
+* Debug Stuff
 * Some more trimming and formating
 * Some Trimming and formating
 * Version and package.json

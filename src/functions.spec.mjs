@@ -1,7 +1,14 @@
 import test from 'tape';
-import { changeLogReducer } from './functions'
+import { changeLogReducer, trimExtraSpaces, trimLeadingWhitespace } from './functions'
 
-test('Test', t => {
-    t.plan(1)
-    t.equal(typeof changeLogReducer, 'function');
+const spacyString = ' Oh La  la    . '
+
+test('Trim Extra Spaces', t => {    
+    t.equal(trimExtraSpaces(spacyString), ' Oh La la . ')
+    t.end()
+});
+
+test('Trim Leading Whitespaces', t => {
+    t.equal(trimLeadingWhitespace(spacyString), 'Oh La  la    . ')
+    t.end()
 });
