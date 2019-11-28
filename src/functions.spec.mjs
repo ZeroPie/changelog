@@ -1,11 +1,7 @@
 import test from 'tape';
 import { changeLogReducer } from './functions'
 
-test('Reducer Formats Stuff Properly', t => {
+test('Test', t => {
+    t.plan(1)
     t.equal(typeof changeLogReducer, 'function');
 });
-
-test('Format formats Stuff Properly', t => {
-    
-});
-
