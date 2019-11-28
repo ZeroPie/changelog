@@ -2,9 +2,13 @@
   "name": "changelog",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZeroPie/changelog.git"
+  },
+  "scripts": {
+    "start": "node --experimental-modules index.mjs"
   },
   "keywords": [],
   "license": "ISC",
