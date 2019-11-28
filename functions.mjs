@@ -11,6 +11,7 @@ const format = str =>
     .map(trimExtraSpaces)
     .map(trimLeadingWhitespace)
     .map(capFirstLetter)
+    .join('') // For console legilibility
 
 const spammyCommits = s => s.length > 6 || s.length > 9000
 
