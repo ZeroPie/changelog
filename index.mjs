@@ -3,30 +3,30 @@ import fs from 'fs'
 import child from 'child_process'
 import { escapeWeirdChars, capFirstLetter, changeLogReducer } from './functions.mjs'
 import { changelogTemplate } from './changeLogTemplate.mjs'
-//import {version} from './package.json'; // :`( 
-const { version } = JSON.parse(fs.readFileSync('package.json', 'utf8'))
-
+import { bulletize } from './functions.mjs'
+const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 
 const gitLogOutput = child.execSync(`git log --format=%B`).toString('utf-8')
+
 gitLogOutput
   .split('\n')
   .map(escapeWeirdChars)
   .map(capFirstLetter)
   .reduce(changeLogReducer, changelogTemplate)
 
-const changeLogMD = `
+const createChangeLog = ({version, repository, adds, changes}) => `
   # ChangeLog
-  ## Version ${version} 
+  ## Version ${version}
+  ### Repo: ${repository.url} 
   ## Adds
-  ${changelogTemplate.adds.join('\n* ')}
+  ${adds.map(bulletize).join('\n')}
   ## Changes
-  ${changelogTemplate.changes.join('\n* ')}
+  ${changes.map(bulletize).join('\n')}
 `
 
-fs.writeFileSync('./CHANGELOG.md', `${changeLogMD}`)
+const changeLog = createChangeLog({...packageJson, ...changelogTemplate}) 
 
-console.log('gitLogOutput', gitLogOutput.split('\n'))
+fs.writeFileSync('./CHANGELOG.md', changeLog)
 
-
+// console.log('gitLogOutput', gitLogOutput.split('\n'))
 console.log({ changelogTemplate })
-

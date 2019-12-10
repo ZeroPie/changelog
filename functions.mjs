@@ -23,3 +23,8 @@ export const changeLogReducer = (ac, el) => {
   is('Delete')(el) ? ac.deletes.push(format(el)) : el
   return ac
 }
+
+export const bulletize = s => 
+    [s]
+      .map(format)
+      .map(s=> `*  ${s}`)
