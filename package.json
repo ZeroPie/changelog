@@ -8,12 +8,17 @@
     "url": "https://github.com/ZeroPie/changelog.git"
   },
   "scripts": {
-    "start": "node --experimental-modules index.mjs"
+    "start": "node --experimental-modules index.mjs",
+    "test": "node --experimental-modules src/*spec.mjs"
   },
   "keywords": [],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ZeroPie/changelog/issues"
   },
-  "homepage": "https://github.com/ZeroPie/changelog#readme"
+  "homepage": "https://github.com/ZeroPie/changelog#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.11.0"
+  }
 }
