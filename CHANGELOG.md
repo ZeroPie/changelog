@@ -2,7 +2,8 @@
   # ChangeLog
   ## Version 1.0.0 
   ## Adds
-  Some more trimming and formating
+  Debug Stuff
+* Some more trimming and formating
 * Some Trimming and formating
 * Version and package.json
 * Version and package.json
