@@ -3,6 +3,11 @@ export const trimExtraSpaces = s => s.replace(/\s\s+/g, ' ')
 export const trimLeadingWhitespace = s => s.replace(/^\s+/, '')
 export const escapeActions = s => s.replace(/(Add|Change)/i, '')
 
+const joinBy = s => arr => arr.join(s)
+
+export const joinByNewLine = joinBy('\n')
+
+export const bulletize = s => [s].map(s=> `*  ${s}`)
 export const capFirstLetter = s => s.replace(/^\w/, r => r.toUpperCase());
 
 const format = str =>
@@ -11,6 +16,7 @@ const format = str =>
     .map(trimExtraSpaces)
     .map(trimLeadingWhitespace)
     .map(capFirstLetter)
+    .map(bulletize)
     .join('') // For console legilibility
 
 const spammyCommits = s => s.length > 6 || s.length > 9000
@@ -24,7 +30,4 @@ export const changeLogReducer = (ac, el) => {
   return ac
 }
 
-export const bulletize = s => 
-    [s]
-      .map(format)
-      .map(s=> `*  ${s}`)
+export const bulletizeRed = (ac, e) => ac += `${e} \n` // Totally not needed, but practicing reducing

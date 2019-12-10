@@ -1,5 +1,5 @@
 import test from 'tape';
-import { changeLogReducer, trimExtraSpaces, trimLeadingWhitespace } from './functions'
+import { changeLogReducer, trimExtraSpaces, trimLeadingWhitespace, bulletize } from './functions'
 
 const spacyString = ' Oh La  la    . '
 
@@ -12,3 +12,7 @@ test('Trim Leading Whitespaces', t => {
     t.equal(trimLeadingWhitespace(spacyString), 'Oh La  la    . ')
     t.end()
 });
+
+test('Adds Bullets to String'), t => {
+    t.equal(bulletize(spacyString)), '*   Oh La  la    .  '
+}
