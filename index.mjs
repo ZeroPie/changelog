@@ -3,7 +3,6 @@ import fs from 'fs'
 import child from 'child_process'
 import { escapeWeirdChars, capFirstLetter, changeLogReducer, bulletizeRed, joinByNewLine} from './functions.mjs'
 import { changelogTemplate } from './changeLogTemplate.mjs'
-import { bulletize } from './functions.mjs'
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 
 const gitLogOutput = child.execSync(`git log --format=%B`).toString('utf-8')
