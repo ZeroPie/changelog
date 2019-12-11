@@ -27,4 +27,4 @@ const changeLog = createChangeLog({...packageJson, ...changelogTemplate})
 fs.writeFileSync('./CHANGELOG.md', changeLog)
 
 // console.log('gitLogOutput', gitLogOutput.split('\n'))
-console.log({ changelogTemplate })
+// console.log({ changelogTemplate })
