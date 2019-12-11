@@ -1,16 +1,15 @@
 
 import fs from 'fs'
 import child from 'child_process'
-import { escapeWeirdChars, capFirstLetter, changeLogReducer, bulletizeRed, joinByNewLine} from './functions.mjs'
-import { changelogTemplate } from './changeLogTemplate.mjs'
-const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+import { sanitize, changeLogReducer, concatenateWithNewTab, joinByNewLine} from './src/funs.mjs'
+import { changelogTemplate } from './src/changeLogTemplate.mjs'
 
+const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 const gitLogOutput = child.execSync(`git log --format=%B`).toString('utf-8')
 
 gitLogOutput
   .split('\n')
-  .map(escapeWeirdChars)
-  .map(capFirstLetter)
+  .map(sanitize)
   .reduce(changeLogReducer, changelogTemplate)
 
 const createChangeLog = ({version, repository, adds, changes}) => `
@@ -18,7 +17,7 @@ const createChangeLog = ({version, repository, adds, changes}) => `
   ## Version ${version}
   ### Repo: ${repository.url} 
   ## Adds
-  ${adds.reduce(bulletizeRed, {})}
+  ${adds.reduce(concatenateWithNewTab, {})}
   ## Changes
   ${joinByNewLine(changes)}
 `
