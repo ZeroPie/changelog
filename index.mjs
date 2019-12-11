@@ -1,7 +1,7 @@
 
 import fs from 'fs'
 import child from 'child_process'
-import { sanitize, changeLogReducer, concatenateWithNewTab, joinByNewLine} from './src/funs.mjs'
+import { sanitize, createChangeLogMD, changeLogReducer } from './src/funs.mjs'
 import { changelogTemplate } from './src/changeLogTemplate.mjs'
 
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
@@ -12,17 +12,7 @@ gitLogOutput
   .map(sanitize)
   .reduce(changeLogReducer, changelogTemplate)
 
-const createChangeLog = ({version, repository, adds, changes}) => `
-  # ChangeLog
-  ## Version ${version}
-  ### Repo: ${repository.url} 
-  ## Adds
-  ${adds.reduce(concatenateWithNewTab, {})}
-  ## Changes
-  ${joinByNewLine(changes)}
-`
-
-const changeLog = createChangeLog({...packageJson, ...changelogTemplate}) 
+const changeLog = createChangeLogMD({...packageJson, ...changelogTemplate}) 
 
 fs.writeFileSync('./CHANGELOG.md', changeLog)
 

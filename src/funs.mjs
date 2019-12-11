@@ -25,7 +25,7 @@ const format = str =>
     .map(capFirstLetter)
     .map(bulletize)
     .filter(spammyCommits)
-    .join('') // For console legilibility
+    // .join('') // For console legilibility
 
 const spammyCommits = s => s.length < 9000
 
@@ -39,3 +39,14 @@ export const changeLogReducer = (ac, el) => {
 }
 
 export const concatenateWithNewTab = (ac, el) => ac += `${el} \n` // Totally not needed, but practicing reducing
+
+
+export const createChangeLogMD = ({version, repository, adds, changes}) => `
+  # ChangeLog
+  ## Version ${version}
+  ### Repo: ${repository.url} 
+  ## Adds
+  ${adds.reduce(concatenateWithNewTab, {})}
+  ## Changes
+  ${joinByNewLine(changes)}
+`
