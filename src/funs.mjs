@@ -46,7 +46,7 @@ export const createChangeLogMD = ({version, repository, adds, changes}) => `
   ## Version ${version}
   ### Repo: ${repository.url} 
   ## Adds
-  ${adds.reduce(concatenateWithNewTab, {})}
+  ${adds.reduce(concatenateWithNewTab)}
   ## Changes
   ${joinByNewLine(changes)}
 `
