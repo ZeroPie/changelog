@@ -24,9 +24,10 @@ const format = str =>
     .map(trimLeadingWhitespace)
     .map(capFirstLetter)
     .map(bulletize)
+    .filter(spammyCommits)
     .join('') // For console legilibility
 
-const spammyCommits = s => s.length > 6 || s.length > 9000
+const spammyCommits = s => s.length < 9000
 
 const is = s => arr => arr.includes(s)
 
