@@ -1,5 +1,5 @@
 import test from 'tape';
-import { changeLogReducer, trimExtraSpaces, trimLeadingWhitespace, bulletize } from './functions'
+import { changeLogReducer, trimExtraSpaces, trimLeadingWhitespace, bulletize } from './../functions.mjs'
 
 const spacyString = ' Oh La  la    . '
 
