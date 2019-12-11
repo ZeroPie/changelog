@@ -20,6 +20,8 @@
   ## Changes
   *  Bulletize
 *  Bulletize
+*  Bulletize
+*  Bulletize
 *  Use node Modules
 *  Headlines for Changes and Adds
 *  Use Reduce
