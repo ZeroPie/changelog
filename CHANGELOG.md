@@ -30,3 +30,9 @@
 *  Use node Modules
 *  Headlines for Changes and Adds
 *  Use Reduce
+  ## Deletions
+  *  Reducer Initial Object*  Lol 
+*  Nvm folder 
+*  Vscode folder 
+
+

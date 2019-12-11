@@ -41,7 +41,7 @@ export const changeLogReducer = (ac, el) => {
 export const concatenateWithNewTab = (ac, el) => ac += `${el} \n` // Totally not needed, but practicing reducing
 
 
-export const createChangeLogMD = ({version, repository, adds, changes}) => `
+export const createChangeLogMD = ({version, repository, adds, changes, deletes}) => `
   # ChangeLog
   ## Version ${version}
   ### Repo: ${repository.url} 
@@ -49,4 +49,7 @@ export const createChangeLogMD = ({version, repository, adds, changes}) => `
   ${adds.reduce(concatenateWithNewTab)}
   ## Changes
   ${joinByNewLine(changes)}
+  ## Deletions
+  ${deletes.reduce(concatenateWithNewTab)}
+
 `
